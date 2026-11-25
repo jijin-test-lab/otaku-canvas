@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otaku Canvas — Curated 4K &amp; HD Anime Wallpapers</title>
+  <meta name="description" content="Explore and download high-quality dark-mode anime wallpapers by series, character, and mood on Otaku Canvas." />
+
+  <!-- Free Google Fonts for clean, professional typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styling & Animation Files -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <!-- Ambient Background Orbs for Pro Dark-Mode Depth -->
+  <div class="ambient-bg" aria-hidden="true">
+    <span class="aurora-orb orb-1"></span>
+    <span class="aurora-orb orb-2"></span>
+    <span class="aurora-orb orb-3"></span>
+  </div>
+
+  <!-- Sticky Frosted-Glass Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Otaku Canvas Home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+            <circle cx="9" cy="9" r="2"></circle>
+            <path d="M21 15l-4.5-4.5L7 20"></path>
+          </svg>
+        </span>
+        <span class="brand-text">Otaku<span>Canvas</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary Navigation">
+        <a href="#top" class="nav-link active">Home</a>
+        <a href="#popular" class="nav-link">Popular</a>
+        <a href="#recent" class="nav-link">Recent</a>
+        <a href="#gallery" class="nav-link">Browse</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="nav-fav-btn" id="nav-fav-btn" aria-label="View saved favourite wallpapers">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>Favourites</span>
+          <span class="badge-count" id="fav-count-badge">0</span>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-Out Navigation Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" hidden></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <span class="brand-text">Otaku<span>Canvas</span></span>
+      <button type="button" class="icon-btn" id="mobile-drawer-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#top" class="mobile-link">Home</a>
+      <a href="#popular" class="mobile-link">Popular Wallpapers</a>
+      <a href="#recent" class="mobile-link">Recently Added</a>
+      <a href="#gallery" class="mobile-link">Browse Full Gallery</a>
+      <button type="button" class="mobile-link mobile-fav-trigger" id="mobile-fav-btn">
+        My Favourites (<span id="mobile-fav-count">0</span>)
+      </button>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </nav>
+  </aside>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-badge reveal-up">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Curated 4K &amp; HD Anime Art Collection
+        </div>
+
+        <h1 class="hero-title reveal-up">
+          Elevate Your Screen With <span class="gradient-text">Cinematic Anime Art</span>
+        </h1>
+
+        <p class="hero-subtitle reveal-up">
+          Discover hand-picked, high-resolution wallpapers crafted for desktop and mobile setups. Browse by anime series, characters, and visual themes—free to preview and download.
+        </p>
+
+        <!-- Hero Search Bar -->
+        <form class="hero-search reveal-up" id="hero-search-form" role="search">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            id="hero-search-input"
+            placeholder="Search by anime, character, or mood (e.g. Cyberpunk, Samurai)..."
+            aria-label="Search anime wallpapers"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn-primary">Explore</button>
+        </form>
+
+        <!-- Quick Category Tags -->
+        <div class="hero-quick-tags reveal-up" aria-label="Quick categories">
+          <span class="quick-label">Trending:</span>
+          <button type="button" class="quick-tag" data-category="Cyberpunk">Cyberpunk</button>
+          <button type="button" class="quick-tag" data-category="Dark Fantasy">Dark Fantasy</button>
+          <button type="button" class="quick-tag" data-category="Shonen">Shonen</button>
+          <button type="button" class="quick-tag" data-category="Slice of Life">Slice of Life</button>
+          <button type="button" class="quick-tag" data-category="Sci-Fi">Sci-Fi</button>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="hero-stats reveal-up">
+          <div class="stat-item">
+            <strong id="stat-total-wallpapers">12+</strong>
+            <span>Curated Artworks</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <strong>4K &amp; HD</strong>
+            <span>Multi-Resolution</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <strong>100% Free</strong>
+            <span>No Login Needed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Wallpapers Showcase -->
+    <section class="section" id="popular">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <div>
+            <span class="section-kicker">Most Loved</span>
+            <h2 class="section-title">Popular Wallpapers</h2>
+          </div>
+          <button type="button" class="btn btn-ghost" id="view-all-popular-btn">
+            View All Popular
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="showcase-grid" id="popular-grid" aria-live="polite">
+          <!-- Popular cards are dynamically loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Recently Added Showcase -->
+    <section class="section" id="recent">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <div>
+            <span class="section-kicker">Fresh Drops</span>
+            <h2 class="section-title">Recently Added</h2>
+          </div>
+          <button type="button" class="btn btn-ghost" id="view-all-recent-btn">
+            Sort By Newest
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="showcase-grid" id="recent-grid" aria-live="polite">
+          <!-- Recently added cards are dynamically loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Interactive Wallpaper Gallery -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <div>
+            <span class="section-kicker">Full Collection</span>
+            <h2 class="section-title">Explore Gallery</h2>
+          </div>
+          <p class="results-count" id="results-count" aria-live="polite">Loading collection...</p>
+        </div>
+
+        <!-- Filter & Search Control Bar -->
+        <div class="filter-panel reveal-up">
+          <!-- Category Filter Pills -->
+          <div class="category-pills" id="category-pills" role="tablist" aria-label="Filter by category">
+            <!-- Category buttons generated automatically from data.js -->
+          </div>
+
+          <!-- Search + Anime Series + Character + Sort Controls -->
+          <div class="filter-controls">
+            <div class="control-group search-control">
+              <label for="gallery-search" class="sr-only">Search gallery</label>
+              <svg class="control-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="search"
+                id="gallery-search"
+                placeholder="Filter by title, tag, series..."
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="control-group">
+              <label for="series-filter" class="sr-only">Filter by anime series</label>
+              <select id="series-filter" aria-label="Filter by anime series">
+                <option value="all">All Anime Series</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="character-filter" class="sr-only">Filter by character</label>
+              <select id="character-filter" aria-label="Filter by character">
+                <option value="all">All Characters</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="sort-filter" class="sr-only">Sort wallpapers</label>
+              <select id="sort-filter" aria-label="Sort wallpapers">
+                <option value="featured">Sort: Featured</option>
+                <option value="popular">Sort: Most Popular</option>
+                <option value="recent">Sort: Recently Added</option>
+                <option value="title">Sort: A to Z</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-outline fav-filter-btn" id="fav-toggle-btn" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span>Favourites</span>
+            </button>
+
+            <button type="button" class="btn btn-subtle" id="reset-filters-btn">Reset</button>
+          </div>
+        </div>
+
+        <!-- Main Responsive Wallpaper Grid -->
+        <div class="wallpaper-grid" id="wallpaper-grid" aria-live="polite">
+          <!-- Shimmer loading placeholders & wallpaper cards render here -->
+        </div>
+
+        <!-- Attractive Empty State (shown when no wallpapers match) -->
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </div>
+          <h3 id="empty-state-title">No wallpapers found</h3>
+          <p id="empty-state-text">Try adjusting your search keywords or clearing your active filters to explore the full collection.</p>
+          <button type="button" class="btn btn-primary" id="empty-reset-btn">Show All Wallpapers</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+              <circle cx="9" cy="9" r="2"></circle>
+              <path d="M21 15l-4.5-4.5L7 20"></path>
+            </svg>
+          </span>
+          <span class="brand-text">Otaku<span>Canvas</span></span>
+        </a>
+        <p class="footer-desc">
+          A modern dark-mode digital gallery for curated anime-inspired wallpapers. Built with respect for creators, open licenses, and clean design.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#popular">Popular Wallpapers</a>
+        <a href="#recent">Recently Added</a>
+        <a href="#gallery">Full Gallery</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="about.html">About Otaku Canvas</a>
+        <a href="contact.html">Contact &amp; Submissions</a>
+        <a href="404.html">Custom 404 Preview</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="current-year">2026</span> Otaku Canvas. All artwork belongs to its respective creators and is shared under permitted licenses.</p>
+    </div>
+  </footer>
+
+  <!-- Compact Wallpaper Preview & Download Lightbox Modal -->
+  <div class="modal-overlay" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close preview">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-media">
+        <div class="modal-blur-bg" id="modal-blur-bg" aria-hidden="true"></div>
+        <div class="modal-img-loader" id="modal-img-loader" aria-hidden="true"></div>
+        <img id="modal-image" src="" alt="" />
+        <span class="modal-res-badge" id="modal-dimensions">3840 × 2160</span>
+      </div>
+
+      <div class="modal-details">
+        <div class="modal-header-meta">
+          <span class="pill-tag" id="modal-category">Category</span>
+          <span class="modal-popularity" id="modal-popularity">Popular</span>
+        </div>
+
+        <h2 class="modal-title" id="modal-title">Wallpaper Title</h2>
+
+        <!-- Bold Separate Resolution Selector Buttons -->
+        <div class="modal-resolution-picker">
+          <span class="picker-label">Select Resolution</span>
+          <div class="resolution-options" id="modal-resolutions">
+            <!-- Resolution buttons populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Primary Action Buttons -->
+        <div class="modal-actions">
+          <button type="button" class="btn btn-primary btn-lg" id="modal-download-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span id="modal-download-label">Download Wallpaper</span>
+          </button>
+
+          <button type="button" class="btn btn-outline btn-lg" id="modal-fav-btn" aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span id="modal-fav-text">Save</span>
+          </button>
+        </div>
+
+        <!-- Collapsible Extra Details & Hashtags (Hidden by Default) -->
+        <details class="modal-more-info" id="modal-more-info">
+          <summary>Artwork Details &amp; Tags</summary>
+          <div class="modal-more-content">
+            <dl class="modal-meta-list">
+              <div>
+                <dt>Anime / Theme</dt>
+                <dd id="modal-series">—</dd>
+              </div>
+              <div>
+                <dt>Character</dt>
+                <dd id="modal-character">—</dd>
+              </div>
+              <div>
+                <dt>Artist / Source</dt>
+                <dd id="modal-artist">—</dd>
+              </div>
+              <div>
+                <dt>License</dt>
+                <dd id="modal-license">—</dd>
+              </div>
+            </dl>
+            <div class="modal-tags" id="modal-tags"></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back-to-Top Button -->
+  <button type="button" class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll back to top" hidden>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Pop-Up Toast Notifications Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Wallpaper Catalog & Interactive JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

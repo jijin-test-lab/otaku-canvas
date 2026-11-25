@@ -1,0 +1,392 @@
+/* ==========================================================================
+   OTAKU CANVAS — PRO-GRADE ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LIVING AURORA BACKGROUND ORBS
+   -------------------------------------------------------------------------- */
+@keyframes auroraDriftOne {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.34;
+  }
+  50% {
+    transform: translate3d(70px, 45px, 0) scale(1.12);
+    opacity: 0.44;
+  }
+}
+
+@keyframes auroraDriftTwo {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate3d(-65px, 55px, 0) scale(1.15);
+    opacity: 0.42;
+  }
+}
+
+@keyframes auroraDriftThree {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translate3d(40px, -50px, 0) scale(1.1);
+    opacity: 0.34;
+  }
+}
+
+.orb-1 {
+  animation: auroraDriftOne 16s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.orb-2 {
+  animation: auroraDriftTwo 20s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.orb-3 {
+  animation: auroraDriftThree 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO ENTRANCE CASCADE, GRADIENT FLOW & PULSING BADGE
+   -------------------------------------------------------------------------- */
+@keyframes heroGlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero .reveal-up {
+  opacity: 0;
+  animation: heroGlideIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero .reveal-up:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.hero .reveal-up:nth-child(2) {
+  animation-delay: 0.14s;
+}
+.hero .reveal-up:nth-child(3) {
+  animation-delay: 0.23s;
+}
+.hero .reveal-up:nth-child(4) {
+  animation-delay: 0.32s;
+}
+.hero .reveal-up:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.hero .reveal-up:nth-child(6) {
+  animation-delay: 0.48s;
+}
+
+/* Flowing gradient text highlight */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background-size: 220% 220%;
+  animation: gradientShift 7s ease infinite;
+}
+
+/* Pulsing ring around hero status dot */
+@keyframes badgePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(168, 85, 247, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+  }
+}
+
+.pulse-dot {
+  animation: badgePulse 2.2s ease-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   3. GLOSSY BUTTON LIGHT SWEEP & BRAND HOVER
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.btn-primary:hover::after {
+  left: 145%;
+}
+
+.brand-icon {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.brand:hover .brand-icon {
+  transform: rotate(-6deg) scale(1.06);
+  box-shadow: 0 8px 26px rgba(168, 85, 247, 0.65);
+}
+
+/* --------------------------------------------------------------------------
+   4. SCROLL-TRIGGERED SECTION REVEALS & GALLERY CARD STAGGER
+   -------------------------------------------------------------------------- */
+body.js-ready .section .reveal-up {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.js-ready .section .reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes cardFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wallpaper-card.card-enter {
+  opacity: 0;
+  animation: cardFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Subtle top edge glow line when hovering over a wallpaper or glass card */
+.wallpaper-card::before,
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #a855f7, #f472b6, transparent);
+  opacity: 0;
+  transition: opacity 0.32s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+.wallpaper-card:hover::before,
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. HEART BOUNCE ANIMATION (FAVOURITES)
+   -------------------------------------------------------------------------- */
+@keyframes heartPop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.34);
+  }
+  65% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pop {
+  animation: heartPop 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   6. SKELETON LOADING SHIMMER & MODAL IMAGE SPINNER
+   -------------------------------------------------------------------------- */
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-media,
+.skeleton-line {
+  background: linear-gradient(
+    90deg,
+    #181628 20%,
+    #272242 50%,
+    #181628 80%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.45s ease-in-out infinite;
+}
+
+@keyframes spinRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-img-loader {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid rgba(168, 85, 247, 0.22);
+  border-top-color: #c084fc;
+  animation: spinRing 0.8s linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.modal-img-loader.is-loading {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   7. CINEMATIC LIGHTBOX MODAL & TOAST ALERTS
+   -------------------------------------------------------------------------- */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalZoomIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-overlay.is-open {
+  animation: modalFadeIn 0.24s ease forwards;
+}
+
+.modal-overlay.is-open .modal-card {
+  animation: modalZoomIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+}
+
+.toast {
+  animation: toastSlideIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.toast.toast-hiding {
+  animation: toastFadeOut 0.26s ease forwards;
+}
+
+/* 404 Floating Accent */
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.error-code {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   8. ACCESSIBILITY: RESPECT SYSTEM "REDUCE MOTION" SETTING
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
